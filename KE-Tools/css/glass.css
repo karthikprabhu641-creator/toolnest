@@ -336,6 +336,37 @@ select option{ background:var(--bg-1); color:var(--text-1); }
 .privacy-badge{ background:rgba(61,220,151,.08); }
 .sidebar-scrim{ -webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px); }
 
+/* Keep the glass treatment light and avoid nonessential compositor work. */
+.topbar,.sidebar,.bottom-nav,.profile-menu,.search-modal,.modal-content{
+  box-shadow:0 8px 24px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(14px) saturate(125%);
+  backdrop-filter:blur(14px) saturate(125%);
+}
+.auth-card,.card,.tool-card,.dash-search,.search-trigger,.result-panel,.code-output,
+.file-item,.preview-box,.thumb-card,.dropzone,.empty-state,.tab-strip,.auth-tabs,
+.search-modal,.toast,.profile-menu,.privacy-badge{
+  box-shadow:0 10px 28px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.07);
+  -webkit-backdrop-filter:blur(12px) saturate(125%);
+  backdrop-filter:blur(12px) saturate(125%);
+}
+.auth-card{ -webkit-backdrop-filter:blur(14px) saturate(125%); backdrop-filter:blur(14px) saturate(125%); }
+.tool-card{ box-shadow:0 10px 28px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.08); }
+button:not(.fav-star):not(.row-remove):not(.fi-remove),.btn,.auth-tab,.tab-strip .tab-btn,
+input,select,textarea,.search-modal input{
+  -webkit-backdrop-filter:blur(8px) saturate(120%);
+  backdrop-filter:blur(8px) saturate(120%);
+}
+.search-trigger,.dash-search{ -webkit-backdrop-filter:blur(10px) saturate(125%); backdrop-filter:blur(10px) saturate(125%); }
+.modal-overlay{ -webkit-backdrop-filter:blur(12px) saturate(125%); backdrop-filter:blur(12px) saturate(125%); }
+.sidebar-scrim{ -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); }
+body::before,body::after,.auth-card,.tool-card,.card,.dash-search,
+button:not(.fav-star):not(.row-remove):not(.fi-remove)::before,.btn::before,
+.auth-tab::before,.tab-strip .tab-btn::before{ animation:none; }
+*,*::before,*::after{ transition-duration:.14s; }
+.tool-card,.tool-card .tool-ico,.btn,.btn-accent,.icon-btn,.search-trigger,.menu-btn,
+.avatar-btn,.auth-tab,.tab-strip .tab-btn,.nav-item,.nav-group-toggle,
+.search-result-item,.profile-menu .pm-item{ transition-duration:.14s; }
+
 @keyframes glassEnter{
   from{ opacity:0; transform:translateY(10px) scale(.985); filter:blur(4px); }
   to{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
