@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ToolNest</title>
+  <meta name="description"
+    content="ToolNest: student, developer, image, PDF and everyday utilities that run entirely in your browser." />
+  <meta name="theme-color" content="#0e1524" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/toolnest-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/toolnest-logo.png" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/tools.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/glass.css" />
+</head>
+
+<body>
+
+  <!-- ============ AUTH SCREEN ============ -->
+  <div id="auth-screen" class="hidden">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="ke-mark"><img src="assets/toolnest-logo.png" alt="" /></div>
+        <h1>ToolNest</h1>
+        <p>Simple tools. Built for everyday work.</p>
+      </div>
+
+      <div class="auth-tabs">
+        <div class="auth-tab active" data-tab="login">Log in</div>
+        <div class="auth-tab" data-tab="signup">Sign up</div>
+      </div>
+
+      <form id="login-form" autocomplete="on">
+        <div class="field">
+          <label for="login-email">Email or username</label>
+          <input type="text" id="login-email" required autocomplete="username" />
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required autocomplete="current-password" />
+        </div>
+        <div class="field-error" id="login-error"></div>
+        <label class="auth-remember"><input type="checkbox" checked disabled /> Keep me signed in on this device</label>
+        <button type="submit" class="btn-primary">Log in</button>
+      </form>
+
+      <form id="signup-form" class="hidden" autocomplete="on">
+        <div class="field">
+          <label for="signup-name">Name</label>
+          <input type="text" id="signup-name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" required autocomplete="new-password" />
+        </div>
+        <div class="field">
+          <label for="signup-confirm">Confirm password</label>
+          <input type="password" id="signup-confirm" required autocomplete="new-password" />
+        </div>
+        <div class="field-error" id="signup-error"></div>
+        <button type="submit" class="btn-primary">Create account</button>
+      </form>
+
+      <div class="auth-foot">
+        <span id="login-form-foot">Don't have an account? <span class="auth-switch-link" data-switch="signup">Sign
+            up</span></span>
+        <span id="signup-form-foot" class="hidden">Already have an account? <span class="auth-switch-link"
+            data-switch="login">Log in</span></span>
+      </div>
+      <div class="auth-note"><span class="auth-note-icon"></span> Sign-in is stored on this device only. ToolNest does
+        not use a real authentication server.</div>
+    </div>
+  </div>
+
+  <!-- ============ APP SHELL ============ -->
+  <div id="app-shell" class="hidden">
+    <header class="topbar">
+      <button class="menu-btn" id="menu-btn" aria-label="Open menu"><span class="menu-ico"></span></button>
+      <div class="brand">
+        <div class="ke-mark"><img src="assets/toolnest-logo.png" alt="" /></div>
+        <span>ToolNest</span>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search-trigger" id="topbar-search">
+        <span class="ico search-ico"></span>
+        <span class="st-text">Search tools...</span>
+        <kbd>Ctrl K</kbd>
+      </div>
+      <button class="icon-btn" id="theme-toggle" title="Toggle theme"><span class="theme-ico"></span></button>
+      <button class="avatar-btn" id="avatar-btn" aria-label="Account menu">K</button>
+    </header>
+
+    <nav class="sidebar" id="sidebar"></nav>
+    <div class="sidebar-scrim" id="sidebar-scrim"></div>
+
+    <main id="main-content"></main>
+
+    <nav class="bottom-nav">
+      <div class="bn-item" data-bn="home"><span class="ico home-ico"></span>Home</div>
+      <div class="bn-item" data-bn="search"><span class="ico search-ico"></span>Search</div>
+      <div class="bn-item" data-bn="favorites"><span class="ico favorites-ico"></span>Favorites</div>
+      <div class="bn-item" data-bn="more"><span class="ico more-ico">•••</span>More</div>
+    </nav>
+  </div>
+
+  <!-- ============ CORE SCRIPTS ============ -->
+  <script src="js/utils.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/recent.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/router.js"></script>
+
+  <!-- ============ TOOL LIBRARIES (CDN, documented in README) ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/JsBarcode/3.11.6/JsBarcode.all.min.js"></script>
+
+  <!-- ============ TOOL MODULES ============ -->
+  <script src="tools/student/sgpa.js"></script>
+  <script src="tools/student/cgpa.js"></script>
+  <script src="tools/student/attendance.js"></script>
+  <script src="tools/student/percentage.js"></script>
+  <script src="tools/student/marks.js"></script>
+  <script src="tools/student/target-sgpa.js"></script>
+  <script src="tools/student/attendance-planner.js"></script>
+
+  <script src="tools/developer/json.js"></script>
+  <script src="tools/developer/base64.js"></script>
+  <script src="tools/developer/jwt.js"></script>
+  <script src="tools/developer/regex.js"></script>
+  <script src="tools/developer/uuid.js"></script>
+  <script src="tools/developer/hash.js"></script>
+  <script src="tools/developer/url.js"></script>
+  <script src="tools/developer/timestamp.js"></script>
+  <script src="tools/developer/html-entities.js"></script>
+  <script src="tools/developer/color.js"></script>
+  <script src="tools/developer/json-csv.js"></script>
+
+  <script src="tools/image/compressor.js"></script>
+  <script src="tools/image/converter.js"></script>
+  <script src="tools/image/resizer.js"></script>
+  <script src="tools/image/cropper.js"></script>
+  <script src="tools/image/rotate.js"></script>
+  <script src="tools/image/base64-image.js"></script>
+
+  <script src="tools/pdf/merge.js"></script>
+  <script src="tools/pdf/split.js"></script>
+  <script src="tools/pdf/extract.js"></script>
+  <script src="tools/pdf/delete-pages.js"></script>
+  <script src="tools/pdf/reorder.js"></script>
+  <script src="tools/pdf/rotate.js"></script>
+  <script src="tools/pdf/images-to-pdf.js"></script>
+  <script src="tools/pdf/pdf-to-images.js"></script>
+
+  <script src="tools/utilities/qr.js"></script>
+  <script src="tools/utilities/barcode.js"></script>
+  <script src="tools/utilities/password.js"></script>
+  <script src="tools/utilities/stopwatch.js"></script>
+  <script src="tools/utilities/timer.js"></script>
+  <script src="tools/utilities/pomodoro.js"></script>
+  <script src="tools/utilities/units.js"></script>
+  <script src="tools/utilities/age.js"></script>
+  <script src="tools/utilities/date.js"></script>
+  <script src="tools/utilities/time-difference.js"></script>
+  <script src="tools/utilities/extended.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').catch(() => { });
+      });
+    }
+  </script>
+</body>
+
+</html>

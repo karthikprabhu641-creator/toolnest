@@ -1,0 +1,111 @@
+/* ============================================
+   KE Tools — tools.css
+   Shared styles for form controls & tool layouts
+   ============================================ */
+
+.form-row{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:14px; }
+.form-group{ flex:1; min-width:140px; }
+.form-group label{ display:block; font-size:12.5px; color:var(--text-2); margin-bottom:6px; font-weight:600; }
+.form-group .hint{ font-size:11px; color:var(--text-3); margin-top:4px; }
+
+input[type=text],input[type=number],input[type=email],input[type=password],
+input[type=date],input[type=time],input[type=url],input[type=search],
+select, textarea{
+  width:100%; padding:10px 12px; border-radius:var(--radius-sm);
+  border:1px solid var(--border); background:var(--bg-2); color:var(--text-1);
+  font-size:13.5px; transition:border-color .12s ease;
+}
+textarea{ resize:vertical; min-height:130px; font-family:var(--font-mono); line-height:1.5; }
+input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--blue); }
+select{ cursor:pointer; }
+
+input[type=range]{ width:100%; accent-color:var(--cyan); }
+input[type=checkbox], input[type=radio]{ accent-color:var(--blue); width:16px; height:16px; }
+
+.code-output{
+  font-family:var(--font-mono); font-size:12.8px; line-height:1.6;
+  background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-sm);
+  padding:14px; white-space:pre-wrap; word-break:break-word; max-height:420px; overflow:auto;
+}
+.code-output.error-text{ color:var(--danger); }
+
+.result-panel{
+  background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-md);
+  padding:18px; margin-top:18px;
+}
+.result-row{ display:flex; justify-content:space-between; align-items:center; padding:7px 0; font-size:13.5px; border-bottom:1px solid var(--border-soft); }
+.result-row:last-child{ border-bottom:none; }
+.result-row .rlabel{ color:var(--text-3); }
+.result-row .rval{ font-weight:700; }
+.result-big{ text-align:center; padding:10px 0 4px; }
+.result-big .num{ font-size:40px; font-weight:800; background:linear-gradient(120deg,var(--blue),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.result-big .lbl{ font-size:12.5px; color:var(--text-3); margin-top:2px; }
+
+table.data-table{ width:100%; border-collapse:collapse; font-size:13px; }
+table.data-table th, table.data-table td{ padding:9px 10px; text-align:left; border-bottom:1px solid var(--border-soft); }
+table.data-table th{ color:var(--text-3); font-weight:600; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+table.data-table input, table.data-table select{ padding:7px 9px; font-size:13px; }
+table.data-table td.actions{ width:36px; text-align:center; }
+.row-remove{ background:none; border:none; color:var(--danger); cursor:pointer; font-size:15px; }
+.table-wrap{ overflow-x:auto; }
+
+.dropzone{
+  border:2px dashed var(--border); border-radius:var(--radius-lg);
+  padding:40px 20px; text-align:center; cursor:pointer; color:var(--text-2);
+  transition:border-color .15s ease, background .15s ease;
+}
+.dropzone:hover, .dropzone.drag-over{ border-color:var(--cyan); background:var(--blue-soft); }
+.dropzone .dz-ico{ font-size:30px; margin-bottom:10px; color:var(--text-3); }
+.dropzone .dz-title{ font-size:14px; font-weight:600; color:var(--text-1); }
+.dropzone .dz-sub{ font-size:12px; color:var(--text-3); margin-top:5px; }
+.dropzone input[type=file]{ display:none; }
+
+.file-list{ margin-top:14px; display:flex; flex-direction:column; gap:8px; }
+.file-item{
+  display:flex; align-items:center; gap:10px; padding:10px 12px;
+  background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:13px;
+}
+.file-item .fi-ico{ font-size:16px; color:var(--cyan); }
+.file-item .fi-name{ flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.file-item .fi-size{ color:var(--text-3); font-size:11.5px; flex-shrink:0; }
+.file-item .fi-remove{ background:none; border:none; color:var(--danger); cursor:pointer; font-size:15px; flex-shrink:0; }
+.file-item.dragging{ opacity:.5; }
+.file-item .fi-drag{ cursor:grab; color:var(--text-3); }
+
+.preview-compare{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+.preview-box{ background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-md); padding:12px; text-align:center; }
+.preview-box img, .preview-box canvas{ max-width:100%; max-height:260px; border-radius:6px; margin:0 auto 8px; }
+.preview-box .pb-label{ font-size:11.5px; color:var(--text-3); }
+.preview-box .pb-size{ font-size:13px; font-weight:700; margin-top:2px; }
+
+.thumb-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:10px; margin-top:14px; }
+.thumb-card{
+  border:2px solid var(--border); border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;
+  background:var(--bg-2); position:relative; text-align:center;
+}
+.thumb-card.selected{ border-color:var(--cyan); }
+.thumb-card canvas, .thumb-card img{ width:100%; display:block; }
+.thumb-card .thumb-num{ font-size:11px; padding:4px; color:var(--text-3); }
+.thumb-card.dragging{ opacity:.4; }
+
+.strength-meter{ height:6px; border-radius:99px; background:var(--bg-2); overflow:hidden; margin-top:10px; }
+.strength-meter .fill{ height:100%; border-radius:99px; transition:width .15s ease, background .15s ease; }
+
+.stopwatch-display, .timer-display{
+  font-family:var(--font-mono); font-size:52px; font-weight:700; text-align:center;
+  letter-spacing:.02em; margin:22px 0; color:var(--text-1);
+}
+.pomodoro-ring{ display:flex; justify-content:center; margin:10px 0 20px; }
+
+.color-swatch{ width:100%; height:90px; border-radius:var(--radius-md); border:1px solid var(--border); margin-bottom:14px; }
+
+.qr-canvas-wrap{ display:flex; justify-content:center; padding:20px; background:#fff; border-radius:var(--radius-md); margin:16px 0; }
+
+.tab-strip{ display:flex; gap:6px; background:var(--bg-2); padding:4px; border-radius:999px; margin-bottom:18px; width:fit-content; }
+.tab-strip .tab-btn{ padding:7px 16px; border-radius:999px; font-size:12.5px; font-weight:600; color:var(--text-3); cursor:pointer; }
+.tab-strip .tab-btn.active{ background:var(--bg-1); color:var(--text-1); }
+
+.kv-list dt{ color:var(--text-3); font-size:11.5px; margin-top:10px; }
+.kv-list dd{ margin:2px 0 0; font-size:13.5px; font-weight:600; word-break:break-all; }
+
+.helper-text{ font-size:12px; color:var(--text-3); margin-top:8px; line-height:1.5; }

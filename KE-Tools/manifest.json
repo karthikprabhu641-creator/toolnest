@@ -1,0 +1,14 @@
+{
+  "name": "ToolNest",
+  "short_name": "ToolNest",
+  "description": "All-in-one browser utilities for students, developers, images, PDFs and everyday tasks.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080d17",
+  "theme_color": "#0e1524",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "assets/toolnest-logo.png", "sizes": "1131x1132", "type": "image/png", "purpose": "any" }
+  ]
+}
