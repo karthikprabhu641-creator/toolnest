@@ -19,6 +19,19 @@ ToolNest is a static site — no build step, no backend.
    ```
 3. Sign up with any name/email/password (see "Login" below) and you're in.
 
+## Deploying to Vercel
+
+ToolNest is a static site with no build step. Set the Vercel project Root
+Directory to `KE-Tools` when importing this repository. From the repository
+root in PowerShell, deploy with:
+
+```powershell
+cd .\KE-Tools
+npx vercel --prod
+```
+
+On the first run, sign in to Vercel and link the project when prompted.
+
 ## Login
 
 The login/signup screen is the **only** simulated part of this app, per the
