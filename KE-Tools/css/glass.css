@@ -352,10 +352,19 @@ select option{ background:var(--bg-1); color:var(--text-1); }
 }
 @media (max-width:640px){
   body{ background-attachment:scroll; }
-  .tool-card,.card{
+  body::before,body::after{ animation:none; }
+  .topbar,.sidebar,.bottom-nav,.profile-menu,.search-modal,.modal-content,
+  .sidebar-scrim,.auth-card,.card,.tool-card,.dash-search,.search-trigger,
+  .result-panel,.code-output,.file-item,.preview-box,.thumb-card,.dropzone,
+  .empty-state,.tab-strip,.toast,.privacy-badge,
+  button:not(.fav-star):not(.row-remove):not(.fi-remove),.btn,
+  .auth-tab,.tab-strip .tab-btn{
     -webkit-backdrop-filter:none;
     backdrop-filter:none;
   }
+  .tool-card,.card,.dash-search{ animation:none; }
+  .tool-card{ content-visibility:auto; contain-intrinsic-size:118px; }
+  button::before,.btn::before,.auth-tab::before,.tab-strip .tab-btn::before{ animation:none; }
   #auth-screen{ padding:16px; }
   .auth-card{ padding:30px 22px 24px; }
   .topbar{ gap:10px; padding:0 12px; }
