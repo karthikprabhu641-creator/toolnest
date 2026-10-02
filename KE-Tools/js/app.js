@@ -101,9 +101,6 @@
   function wireShell(){
     const user = KE.Auth.currentUser();
 
-    // Topbar search trigger
-    document.getElementById("topbar-search").addEventListener("click", () => KE.Search.open());
-
     // Theme toggle
     const themeBtn = document.getElementById("theme-toggle");
     updateThemeIcon(themeBtn);
