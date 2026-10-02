@@ -351,6 +351,11 @@ select option{ background:var(--bg-1); color:var(--text-1); }
   main#main-content{ padding-top:22px; }
 }
 @media (max-width:640px){
+  body{ background-attachment:scroll; }
+  .tool-card,.card{
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
   #auth-screen{ padding:16px; }
   .auth-card{ padding:30px 22px 24px; }
   .topbar{ gap:10px; padding:0 12px; }
